@@ -9,7 +9,7 @@ Toteutetaan yhden pelaajan korttipeli, perinteinen pasianssi.
 - "Kädessä" lisäksi pakka, joka sisältää kaikki loput kortit.
 - Pöydällä lisäksi erillinen tyhjä tila neljälle eri pinolle, joihin kaikki kortit on tarkoitus järjestää. 
 
-**Pelin eteneminen:** "Työskentelypakassa" ylösalaisin olevan kortin voi katsoa vain, mikäli sen päällä ei ole mitään muuta korttia. Kädessä olevan pakan kortteja voi selata edestakaisin. Kaikkia kortteja on mahdollista siirrellä. Kortin voi kuitenkin siirtää vain sellaisen kortin päälle, joka on joko
+**Pelin eteneminen:** "Työskentelypakassa" ylösalaisin olevan kortin voi katsoa vain, mikäli sen päällä ei ole mitään muuta korttia. Kädessä olevan pakan kortteja voi selata järjestyksessä. Kaikkia kortteja on mahdollista siirrellä. Kortin voi kuitenkin siirtää vain sellaisen kortin päälle, joka on joko
 - "työskentelypakassa" arvoltaan yhden suurempi ja eri värinen kortti, tai
 - "lopullisessa pakassa" samaa maata edustava, arvoltaan yhden pienempi kortti
 
