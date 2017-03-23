@@ -35,10 +35,10 @@
                 <version>1.1.8</version>
                     <configuration>
                         <targetClasses>
-                            <param>sovelluslogiikka.*</param>
+                            <param>pasianssi.sovelluslogiikka.*</param>
                         </targetClasses>
                         <targetTests>
-                            <param>sovelluslogiikka.*</param>
+                            <param>pasianssi.sovelluslogiikka.*</param>
                         </targetTests>
                     </configuration>
             </plugin>
