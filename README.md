@@ -5,4 +5,5 @@ Yhden pelaajan korttipeli. Päästäkseen pelin loppuun on järjestettävä kaik
 ## Dokumentaatio
 
 [Aiheen kuvaus](dokumentaatio/aiheenKuvausJaRakenne.md)
+
 [Tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
