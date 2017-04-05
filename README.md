@@ -7,3 +7,7 @@ Yhden pelaajan korttipeli. Päästäkseen pelin loppuun on järjestettävä kaik
 [Aiheen kuvaus](dokumentaatio/aiheenKuvausJaRakenne.md)
 
 [Tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
+
+[Checkstyle-raportti](https://htmlpreview.github.io/?https://github.com/erikaylenius/pasianssi/blob/master/dokumentaatio/checkstyle/checkstyle.html)
+
+[Pit-raportti](https://htmlpreview.github.io/?https://github.com/erikaylenius/pasianssi/blob/master/dokumentaatio/pit/index.html)
