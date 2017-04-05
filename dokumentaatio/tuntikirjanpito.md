@@ -9,7 +9,7 @@ Päivä | Tunnit | Kuvaus
 23.03.2017 | 6 h | OhTeMe-kurssin materiaalin kertaaminen (JUnit-testit), koodaamisen ja testien kirjoittamisen aloitus, checkstyle-raportti, alustava luokkakaavio, pit-raportin generoimisen yrittäminen
 29.03.2017 | 1 h | OhPe- ja OhJa-kurssien kertaaminen
 30.03.2017 | 2.5 h | Pit-raportin generoimisen yrittäminen
-03.04.2017 | 2 h | Ohjelmointikurssien kertaaminen, ohjelmointi
-04.04.2017 | 1 h | Ohjelmointi, testien kirjoittaminen
-05.04.2017 | 5 h | Ohjelmointi, testien kirjoittaminen, checkstyle-raportti,  pit-raportti
+03.04.2017 | 2 h | Ohjelmointikurssien kertaaminen, sovelluslogiikan ohjelmointi
+04.04.2017 | 1 h | Sovelluslogiikan ohjelmointi, testien kirjoittaminen
+05.04.2017 | 10.5 h | Sovelluslogiikan ohjelmointi, testien kirjoittaminen, checkstyle-raportti,  pit-raportti, luokkakaavion päivittäminen, javadoc-merkintöjen laatiminen, käyttöliittymän ohjelmoimisen aloittaminen ja käyttöliittymäohjelmointiin liittyvien asioiden kertaaminen ja opiskelu
 

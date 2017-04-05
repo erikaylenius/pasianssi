@@ -14,32 +14,42 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author eylenius
+ * 
  */
 public class PeliTest {
     
     public PeliTest() {
     }
     
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
+    Peli peli;
+    Peruspino pino;
     
     @Before
     public void setUp() {
+        peli = new Peli();
+        pino = new Peruspino();
     }
     
-    @After
-    public void tearDown() {
+    @Test
+    public void pakkaOlemassa() {
+        assertTrue(peli.getPakka() != null);
     }
-
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    
+    @Test
+    public void kaikkiPoytaPinotOlemassa() {
+        assertEquals(7, peli.getPoytaPinot().size());
+    }
+    
+    @Test
+    public void kaikkiPerusPinotOlemassa() {
+        assertEquals(4, peli.getPerusPinot().size());
+    }
+    
+    public int josPeliLapiAnna1JosEiAnna0() {
+        if (peli.peliLapi()) {
+            return 1;
+        }
+        
+        return 0;
+    }
 }

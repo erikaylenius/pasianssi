@@ -16,11 +16,21 @@ public class Poytapino {
         
         this.poytaPino = new ArrayList<Kortti>();
         
-    }    
+    } 
+    
+    /**
+     * Metodi lisää kortin pöytäpinoon uuden pelin alkaessa.
+     * @param kortti pinoon lisättävä kortti
+     */
     
     public void lisaaKortti(Kortti kortti) {
         this.poytaPino.add(kortti);
     }
+    
+    /**
+     * Metodi huolehtii siitä, että sääntöjen mukaiset kortit ovat pelin alkaessa
+     * ylösalaisin.
+     */
     
     public void alusta() {
         for (int i = 0; i < (poytaPino.size() - 2); i++) {
@@ -35,7 +45,13 @@ public class Poytapino {
     public Kortti getKortti(int i) {
         return this.poytaPino.get(i);
     }
-
+    
+    /**
+     * Metodi lisää pelin aikana pinon päälle halutun kortin, mikäli säännöt 
+     * sallivat kortin lisäämisen.
+     * @param kortti kortti, joka halutaan lisätä
+     */
+    
     public void lisaaKorttiPaalle(Kortti kortti) {
         if (poytaPino.isEmpty()) {
             if (kortti.getArvo() == 13) {
@@ -52,6 +68,12 @@ public class Poytapino {
             }
         }    
     }
+    
+    /**
+     * Metodi poistaa pinon päällimmäisen kortin pinosta silloin, kun kyseinen
+     * kortti voidaan sääntöjen mukaan siirtää muualle.
+     * @param kortti kortti, joka siirretään muualle
+     */
 
     public void poistaKorttiPinosta(Kortti kortti) {
         this.poytaPino.remove(kortti);

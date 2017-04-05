@@ -15,6 +15,6 @@ Toteutetaan yhden pelaajan korttipeli, perinteinen pasianssi.
 
 Lisäksi kuninkaan voi siirtää tyhjälle "työskentelypakan" paikalle.
 
-![Luokkakaavio](Luokkakaavio_V1.png)
+![Luokkakaavio](luokkakaavio.png)
 
 

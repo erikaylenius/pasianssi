@@ -6,6 +6,7 @@ package sovelluslogiikka;
  * tyhjiä, mutta niihin on tavoitteena koota 13 saman maan korttia 
  * arvojärjestyksessä, arvoltaan suurin kortti päällimmäisenä. 
  */
+
 import java.util.ArrayList;
 
 public class Peruspino {
@@ -19,11 +20,23 @@ public class Peruspino {
         return this.perusPino.size();
     }
     
+    /**
+     * Metodi lisää pinoon uuden kortin päällimmäiseksi, mikäli kortin saa
+     * sääntöjen mukaan lisätä.
+     * @param kortti pinoon lisättävä kortti
+     */
+    
     public void lisaaPinoon(Kortti kortti) {
         if (voikoLisataPinoon(kortti)) {
             this.perusPino.add(kortti);
         }
     }
+    
+    /**
+     * Metodi poistaa pinon päällimmäisen kortin silloin, kun kyseinen kortti 
+     * siirretään muualle.
+     * @param kortti poistettava kortti
+     */
     
     public void poistaPinosta(Kortti kortti) {
         this.perusPino.remove(kortti);
@@ -32,6 +45,12 @@ public class Peruspino {
     public Kortti getKortti(int i) {
         return this.perusPino.get(i);
     }
+    
+    /**
+     * Metodi kertoo, voiko korttia lisätä sääntöjen mukaan pinon päällimmäiseksi.
+     * @param kortti kortti, jota yritetään siirtää pinon päälle
+     * @return saako kortin siirtää pinoon
+     */
     
     public boolean voikoLisataPinoon(Kortti kortti) {
         if (this.perusPino.isEmpty() && kortti.getArvo() == 1) {
@@ -49,6 +68,12 @@ public class Peruspino {
         return false;
     }
     
+    /**
+     * Metodi kertoo, onko pinossa 13 korttia, ja onko yksittäisessä pinossa 
+     * täten kaikki pelin läpäisemiseksi tarvitut kortit.
+     * @return onko pinossa kaikki kortit
+     */
+    
     public boolean pinoValmis() {
         if (this.perusPino.get(12) != null) {
             return true;
@@ -56,4 +81,5 @@ public class Peruspino {
         
         return false;
     }
+    
 }

@@ -17,11 +17,21 @@ public class Arpoja {
         this.kaikki = new ArrayList<Kortti>();
     }
     
+    /**
+     * Luo kaikki 52 korttia ja sekoittaa ne satunnaiseen järjestykseen.
+     */
+    
     public void alkuArvonta() {
         lisaaKaikki(this.kaikki);
         Collections.shuffle(kaikki);        
     }
-        
+    
+    /**
+     * Luo uuden, halutun kokoisen pöytäpinon.
+     * @param maara korttien määrä pinossa
+     * @return uusi, halutun määrän korteja sisältävä pöytäpino
+     */  
+    
     public Poytapino uusiPoytaPino(int maara) {
         Poytapino palautettava = new Poytapino();
         int i = 0;
@@ -33,6 +43,11 @@ public class Arpoja {
         
         return palautettava;
     }
+    
+    /**
+     * Luo uuden pakan peliin.
+     * @return uusi, 24 korttia sisältävä pakka
+     */
     
     public Pakka uusiPakka() {
         Pakka palautettava = new Pakka();
@@ -48,7 +63,10 @@ public class Arpoja {
         /* korttien kääntäminen */
        
 
-
+    /**
+     * Metodin alkuArvonta() apumetodi. 
+     * @param kaikki lista, jolle kaikki kortit tarkoitus lisätä
+     */
     private void lisaaKaikki(ArrayList<Kortti> kaikki) {
         lisaa(kaikki, "pata", "musta");
         lisaa(kaikki, "risti", "musta");
@@ -56,6 +74,13 @@ public class Arpoja {
         lisaa(kaikki, "ruutu", "punainen");
 
     }
+    
+    /**
+     * Metodin lisaaKaikki() apumetodi.
+     * @param kaikki lista, jolle kaikki pelin luodut kortit lisätään
+     * @param maa lisättävän ja luodun uuden kortin maa
+     * @param vari lisättävän ja luodun uuden kortin väri
+     */
     
     private void lisaa(ArrayList<Kortti> kaikki, String maa, String vari) {
         for (int i = 1; i < 14; i++) {

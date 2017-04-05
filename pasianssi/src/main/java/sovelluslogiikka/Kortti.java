@@ -34,9 +34,17 @@ public class Kortti {
         return this.arvo;
     }
     
+    /**
+     * Metodi kertoo, onko kortti kuvapuoli vai selkä ylöspäin.
+     * @return onko kortti oikeinpäin
+     */
     public boolean onkoOikeinPain() {
         return this.oikeinPain;
     }
+    
+    /**
+     * Metodi kääntää kortin toisin päin.
+     */
     
     public void kaanna() {
         if (this.oikeinPain) {

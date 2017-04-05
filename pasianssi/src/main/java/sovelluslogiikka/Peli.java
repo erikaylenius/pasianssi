@@ -10,6 +10,8 @@ package sovelluslogiikka;
  * määrittää, milloin peli on läpäisty.
  */
 
+import java.util.ArrayList;
+
 public class Peli {
 
     private Arpoja korttienJako;
@@ -50,13 +52,44 @@ public class Peli {
     }
     
 
-    
+    /**
+     * Metodi kertoo, millä ehdolla pelaaja pääsee pelin läpi.
+     * 
+     * @return palauttaa arvon true, jos peli on läpi
+     */
     public boolean peliLapi() {
-        if (this.ekaPino.pinoValmis() && this.tokaPino.pinoValmis() 
-                && this.kolmasPino.pinoValmis() && this.neljasPino.pinoValmis()) {
-            return true;
+        if (this.ekaPino.pinoValmis() && this.tokaPino.pinoValmis()) {
+            if (this.kolmasPino.pinoValmis() && this.neljasPino.pinoValmis()) {
+                return true;
+            }
         }    
     
         return false;
+    }
+    
+    /* testausta helpottavia metodeja */
+    public Pakka getPakka() {
+        return this.pakka;
+    }
+    
+    public ArrayList<Poytapino> getPoytaPinot() {
+        ArrayList<Poytapino> palautettava = new ArrayList<>();
+        palautettava.add(yksiAlussa); 
+        palautettava.add(kaksiAlussa);
+        palautettava.add(kolmeAlussa); 
+        palautettava.add(neljaAlussa);
+        palautettava.add(viisiAlussa); 
+        palautettava.add(kuusiAlussa);
+        palautettava.add(seitsemanAlussa);
+        return palautettava;
+    }
+    
+    public ArrayList<Peruspino> getPerusPinot() {
+        ArrayList<Peruspino> palautettava = new ArrayList<>();
+        palautettava.add(ekaPino); 
+        palautettava.add(tokaPino);
+        palautettava.add(kolmasPino); 
+        palautettava.add(neljasPino);
+        return palautettava;
     }
 }
