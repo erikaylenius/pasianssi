@@ -19,4 +19,12 @@ public class Pakka {
     public Pakka() {
         this.pakka = new ArrayList<Kortti>();
     }
+    
+    public void lisaaKortti(Kortti kortti) {
+        this.pakka.add(kortti);
+    }
+    
+    public int pakanKoko() {
+        return this.pakka.size();
+    }
 }

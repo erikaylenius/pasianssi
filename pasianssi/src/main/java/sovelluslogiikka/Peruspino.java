@@ -37,7 +37,7 @@ public class Peruspino {
         return this.perusPino.get(i);
     }
     
-    boolean voikoLisataPinoon(Kortti kortti) {
+    public boolean voikoLisataPinoon(Kortti kortti) {
         if (this.perusPino.isEmpty() && kortti.getArvo() == 1) {
             return true;
         }
@@ -50,6 +50,14 @@ public class Peruspino {
                 return true;
             }
         }
+        return false;
+    }
+    
+    public boolean pinoValmis() {
+        if (this.perusPino.get(12) != null) {
+            return true;
+        }
+        
         return false;
     }
 }

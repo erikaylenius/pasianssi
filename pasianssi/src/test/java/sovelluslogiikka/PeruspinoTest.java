@@ -55,5 +55,16 @@ public class PeruspinoTest {
         pino.lisaaPinoon(new Kortti("pata", "musta", 11));
         assertEquals(0, pino.pinonKoko());
     }
+    
+    @Test
+    public void onkoValmiissaPinossa13Korttia() {
+        for (int i = 1; i < 14; i++) {
+            pino.lisaaPinoon(new Kortti("hertta", "punainen", i));
+        }    
+        assertEquals(13, pino.pinonKoko());    
+        
+    }
 
 }
+
+/* onkoKortitOikeinPain */
