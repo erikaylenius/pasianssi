@@ -1,14 +1,10 @@
 package sovelluslogiikka;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /**
- *
- * @author eylenius
+ * Luokka määrittelee neljän eri peruspinon ominaisuudet. Pinot ovat aluksi
+ * tyhjiä, mutta niihin on tavoitteena koota 13 saman maan korttia 
+ * arvojärjestyksessä, arvoltaan suurin kortti päällimmäisenä. 
  */
 import java.util.ArrayList;
 

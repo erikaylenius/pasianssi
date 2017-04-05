@@ -1,15 +1,11 @@
 package sovelluslogiikka;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /**
- *
- * @author eylenius
+ * Luokka jakaa kortit satunnaisessa järjestyksessä uuden pelin alkaessa, 
+ * osan seitsemään eri pinoon pöydälle ja loput pakkaan. 
  */
+
 import java.util.ArrayList;
 import java.util.Collections;
 

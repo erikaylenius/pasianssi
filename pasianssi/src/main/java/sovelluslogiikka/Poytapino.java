@@ -1,14 +1,9 @@
 package sovelluslogiikka;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
- *
- * @author eylenius
+ * Luokka määrittelee seitsemän eri pelin alussa jaetun pinon ominaisuudet. 
+ * Pinot sisältävät aluksi 1, 2, 3, 4, 5, 6 ja 7 arvottua korttia. Alkuasetelmassa 
+ * kunkin pinon ylin kortti on oikein päin, loput nurinpäin. 
  */
 
 import java.util.ArrayList;

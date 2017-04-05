@@ -2,9 +2,9 @@ package sovelluslogiikka;
 
 
 /**
- *
- * @author eylenius
+ * Luokka määrittelee kaikkien 52 kortin ominaisuudet.
  */
+
 public class Kortti {
 
     private String maa;

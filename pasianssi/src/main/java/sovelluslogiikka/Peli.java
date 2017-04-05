@@ -6,9 +6,10 @@
 package sovelluslogiikka;
 
 /**
- *
- * @author eylenius
+ * Luokka luo ja hallinnoi pelissä tarvittavia korttipinoja ja -pakkoja, sekä
+ * määrittää, milloin peli on läpäisty.
  */
+
 public class Peli {
 
     private Arpoja korttienJako;
