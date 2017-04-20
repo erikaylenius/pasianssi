@@ -17,4 +17,8 @@ Lisäksi kuninkaan voi siirtää tyhjälle "työskentelypakan" paikalle.
 
 ![Luokkakaavio](luokkakaavio.png)
 
+![Sekvenssikaavio: uuden pelin aloittaminen](uusiPeliSkaavio.png "Sekvenssikaavio - uuden pelin aloitus")
+
+![Sekvenssikaavio: kortin siirtäminen peruspinoon](siirtoPerusPinoonSkaavio.png "Sekvenssikaavio - kortin siirtäminen peruspinoon")
+
 

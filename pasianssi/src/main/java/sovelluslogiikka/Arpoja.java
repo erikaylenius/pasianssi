@@ -85,11 +85,10 @@ public class Arpoja {
     private void lisaa(ArrayList<Kortti> kaikki, String maa, String vari) {
         for (int i = 1; i < 14; i++) {
             kaikki.add(new Kortti(maa, vari, i));
-        }
-                 
-    /* Testaamista auttavia metodeja: */    
-        
+        } 
     }
+    
+    /* Testaamista auttavia metodeja: */   
     
     public int kaikkienKorttienLkm() {
         return this.kaikki.size();

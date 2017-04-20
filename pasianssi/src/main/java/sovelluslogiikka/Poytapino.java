@@ -46,6 +46,10 @@ public class Poytapino {
         return this.poytaPino.get(i);
     }
     
+    public ArrayList<Kortti> getPoytaPino() {
+        return this.poytaPino;
+    }
+    
     /**
      * Metodi lisää pelin aikana pinon päälle halutun kortin, mikäli säännöt 
      * sallivat kortin lisäämisen.

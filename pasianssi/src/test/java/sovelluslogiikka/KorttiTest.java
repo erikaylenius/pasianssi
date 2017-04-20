@@ -29,11 +29,20 @@ public class KorttiTest {
         kortti = new Kortti("hertta", "punainen", 3);
     }
     
+    
+    @Test
+    public void onkoOikeinPain() {
+        assertEquals(true, kortti.onkoOikeinPain());
+    }
+    
     @Test
     public void kaantyyko() {
         kortti.kaanna();
         assertEquals(false, kortti.onkoOikeinPain());
     }
+    
+    
+    
 
 
 }

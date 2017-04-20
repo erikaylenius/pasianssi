@@ -23,11 +23,13 @@ public class PeliTest {
     
     Peli peli;
     Peruspino pino;
+    Poytapino poytapino;
     
     @Before
     public void setUp() {
         peli = new Peli();
         pino = new Peruspino();
+        poytapino = new Poytapino();
     }
     
     @Test
@@ -45,11 +47,21 @@ public class PeliTest {
         assertEquals(4, peli.getPerusPinot().size());
     }
     
-    public int josPeliLapiAnna1JosEiAnna0() {
-        if (peli.peliLapi()) {
-            return 1;
+    
+    @Test
+    public void siirtaakoKortinPakastaPerusPinoonOikein() {
+        Kortti kortti = null;
+        while (true) {
+            if (peli.getPakka().getPaallimmainen().getArvo() == 1) {
+                kortti = peli.getPakka().getPaallimmainen();
+                break;
+            }
+            peli.getPakka().naytaSeuraava();
         }
         
-        return 0;
+        peli.setValittuKortti(kortti);
+        peli.siirraKorttiPerusPinoon(peli.getPerusPinot().get(0));
+        assertEquals(1, peli.getPerusPinot().get(0).pinonKoko());
     }
+    
 }

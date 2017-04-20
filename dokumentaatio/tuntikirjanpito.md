@@ -12,4 +12,7 @@ Päivä | Tunnit | Kuvaus
 03.04.2017 | 2 h | Ohjelmointikurssien kertaaminen, sovelluslogiikan ohjelmointi
 04.04.2017 | 1 h | Sovelluslogiikan ohjelmointi, testien kirjoittaminen
 05.04.2017 | 10.5 h | Sovelluslogiikan ohjelmointi, testien kirjoittaminen, checkstyle-raportti,  pit-raportti, luokkakaavion päivittäminen, javadoc-merkintöjen laatiminen, käyttöliittymän ohjelmoimisen aloittaminen ja käyttöliittymäohjelmointiin liittyvien asioiden kertaaminen ja opiskelu
-
+13.04.2017 | 1.5 h | Swing-oppaiden lukeminen
+14.04.2017 | 2 h | Swing-oppaiden lukeminen, vähän ohjelmointia ja pari JUnit-testiä
+19.04.2017 | 1 h | Swing-oppaiden lukeminen ja tiedon etsiminen
+20.4.2017 | 4.5 h | Sekvenssikaavioiden piirtäminen, raporttien generointi, ohjelmointia

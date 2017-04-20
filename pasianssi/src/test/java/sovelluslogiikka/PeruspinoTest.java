@@ -64,7 +64,8 @@ public class PeruspinoTest {
         assertEquals(13, pino.pinonKoko());    
         
     }
-
+    
+    
 }
 
 /* onkoKortitOikeinPain */

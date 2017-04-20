@@ -9,10 +9,11 @@ import java.util.*;
 
 public class Pakka {
     private ArrayList<Kortti> pakka;
-    private Kortti nakyva;
+    private Kortti paallimmainen;
     
     public Pakka() {
         this.pakka = new ArrayList<Kortti>();
+        this.paallimmainen = null;
     }
     
     /**
@@ -22,10 +23,40 @@ public class Pakka {
     
     public void lisaaKortti(Kortti kortti) {
         this.pakka.add(kortti);
+        this.paallimmainen = kortti;
+    }
+    
+    /**
+     * Metodi poistaa kortin pakasta.
+     * @param kortti pakasta poistettava kortti
+     */
+    
+    public void poistaPakasta(Kortti kortti) {
+        this.pakka.remove(kortti);
+    }
+    
+    /**
+     * Metodi siirtää pakassa seuraavana olevan kortin päällimmäiseksi.
+     */
+    
+    public void naytaSeuraava() {
+        if (this.pakka.indexOf(this.paallimmainen) == this.pakka.size() - 1) {
+            this.paallimmainen = this.pakka.get(0);
+        } else {
+            this.paallimmainen = this.pakka.get(pakka.indexOf(this.paallimmainen) + 1);
+        }
     }
     
     
     public int pakanKoko() {
         return this.pakka.size();
+    }
+    
+    public Kortti getPaallimmainen() {
+        return this.paallimmainen;
+    }
+    
+    public ArrayList<Kortti> getPakka() {
+        return this.pakka;
     }
 }

@@ -12,6 +12,8 @@ package kayttoliittyma;
  
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import sovelluslogiikka.Pakka;
+
 public class PakkaKuuntelija implements ActionListener {
 
 
@@ -19,7 +21,7 @@ public class PakkaKuuntelija implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
             
-        /* näytä seuraava kortti */
+        
         
     }
 }

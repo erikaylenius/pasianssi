@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package sovelluslogiikka;
 
 /**
@@ -27,6 +23,7 @@ public class Peli {
     private Poytapino kuusiAlussa;
     private Poytapino seitsemanAlussa;
     private Pakka pakka;
+    public Kortti valittuKortti;
     
     public Peli() {
         
@@ -49,14 +46,20 @@ public class Peli {
         
         this.pakka = korttienJako.uusiPakka();
         
+        this.valittuKortti = null;
+        
     }
     
 
     /**
      * Metodi kertoo, millä ehdolla pelaaja pääsee pelin läpi.
-     * 
+ 
      * @return palauttaa arvon true, jos peli on läpi
      */
+    
+    public void setValittuKortti(Kortti kortti) {
+        this.valittuKortti = kortti;
+    }
     public boolean peliLapi() {
         if (this.ekaPino.pinoValmis() && this.tokaPino.pinoValmis()) {
             if (this.kolmasPino.pinoValmis() && this.neljasPino.pinoValmis()) {
@@ -65,6 +68,50 @@ public class Peli {
         }    
     
         return false;
+    }
+    
+    /**
+     * Metodi siirtää kortin peruspinoon, mikäli säännöt sallivat.
+     * @param kohde peruspino, johon korttia yritetään siirtää
+     */
+    
+    public void siirraKorttiPerusPinoon(Peruspino kohde) {
+        for (Poytapino poytaPino : this.getPoytaPinot()) {
+            if (poytaPino.getPoytaPino().contains(valittuKortti)) {
+                this.siirraPoytaPinosta(poytaPino, kohde);
+            }
+        }       
+        if (this.pakka.getPakka().contains(valittuKortti)) {
+            this.siirraPakasta(kohde);
+        }
+    }
+    
+    /**
+     * Metodin siirraKorttiPerusPinoon apumetodi, jota kutsutaan, jos valittu kortti 
+     * sijaitsee jossain pöytäpinossa.
+     * @param poytaPino pöytapino, jossa valittu kortti sijaitsee
+     * @param kohde peruspino, johon korttia yritetään siirtää
+     */
+    
+    private void siirraPoytaPinosta(Poytapino poytaPino, Peruspino kohde) {
+        kohde.lisaaPinoon(valittuKortti);
+        if (kohde.voikoLisataPinoon(valittuKortti)) {
+            poytaPino.poistaKorttiPinosta(valittuKortti);
+        }
+        
+    }
+    
+    /**
+     * Metodin siirraKorttiPerusPinoon apumetodi, jota kutsutaan, jos valittu kortti
+     * sijaitsee pakassa.
+     * @param kohde peruspino, johon korttia yritetään siirtää
+     */
+    
+    private void siirraPakasta(Peruspino kohde) {
+        kohde.lisaaPinoon(valittuKortti);
+        if (kohde.voikoLisataPinoon(valittuKortti)) {
+            this.pakka.poistaPakasta(valittuKortti);
+        }      
     }
     
     /* testausta helpottavia metodeja */
@@ -92,4 +139,5 @@ public class Peli {
         palautettava.add(neljasPino);
         return palautettava;
     }
+    
 }
