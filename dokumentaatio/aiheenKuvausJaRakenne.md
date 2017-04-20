@@ -25,6 +25,6 @@ Lisäksi kuninkaan voi siirtää tyhjälle "työskentelypakan" paikalle.
 
 **Sekvenssikaavio: kortin siirtäminen peruspinoon**
 
-![Sekvenssikaavio: kortin siirtäminen peruspinoon](siirtoPerusPinoonSkaavio.png "Sekvenssikaavio - kortin siirtäminen peruspinoon")
+![Sekvenssikaavio: kortin siirtäminen peruspinoon](kortinSiirtoSkaavio.png "Sekvenssikaavio - kortin siirtäminen peruspinoon")
 
 
