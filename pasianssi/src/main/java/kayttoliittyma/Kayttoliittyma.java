@@ -164,7 +164,7 @@ public class Kayttoliittyma implements Runnable {
     
     public JLayeredPane luoPakka() {
     JLayeredPane pakanKortit = new JLayeredPane();
-        int sijainti = 0;
+
         for (int i = 0; i < peli.getPakka().getPakka().size(); i++) {
             Kortti viiteKorttiin = peli.getPakka().getPakka().get(i);
             String tiedostonimi = getTiedostoNimi(viiteKorttiin);
@@ -172,18 +172,11 @@ public class Kayttoliittyma implements Runnable {
             JLabelKortti pakanKortti = new JLabelKortti(kuvaKortista, viiteKorttiin);
             pakanKortti.setBounds(0, 0, kuvaKortista.getIconWidth(), kuvaKortista.getIconHeight());
             pakanKortit.add(pakanKortti, i, -1);
-            sijainti += 40;
+
         }
         
         
         return pakanKortit;
-    }
-
-    public static void seuraavaPakasta(Container container) {
-        JLabel label = new JLabel("oho");
-
-        
-    }
-        
+    }     
         
 }
