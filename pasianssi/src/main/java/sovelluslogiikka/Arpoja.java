@@ -40,7 +40,7 @@ public class Arpoja {
             kaikki.remove(0);
             i++;
         }
-        
+        palautettava.alusta();
         return palautettava;
     }
     

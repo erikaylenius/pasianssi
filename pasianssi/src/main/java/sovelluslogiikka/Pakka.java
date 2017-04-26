@@ -37,14 +37,17 @@ public class Pakka {
     
     /**
      * Metodi siirtää pakassa seuraavana olevan kortin päällimmäiseksi.
+     * @return seuraavana oleva kortti
      */
     
-    public void naytaSeuraava() {
+    public Kortti naytaSeuraava() {
         if (this.pakka.indexOf(this.paallimmainen) == this.pakka.size() - 1) {
             this.paallimmainen = this.pakka.get(0);
         } else {
             this.paallimmainen = this.pakka.get(pakka.indexOf(this.paallimmainen) + 1);
         }
+        
+        return this.paallimmainen;
     }
     
     

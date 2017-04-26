@@ -33,7 +33,7 @@ public class Poytapino {
      */
     
     public void alusta() {
-        for (int i = 0; i < (poytaPino.size() - 2); i++) {
+        for (int i = 0; i < (poytaPino.size() - 1); i++) {
             poytaPino.get(i).kaanna();
         }
     }
