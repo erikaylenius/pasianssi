@@ -1,17 +1,15 @@
 
 package kayttoliittyma;
-
 import sovelluslogiikka.*;
+import java.io.InputStream;
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import javax.imageio.ImageIO;
 import java.awt.Color;
 import java.awt.Container;
-import java.awt.Cursor; 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.dnd.DnDConstants;
-import java.awt.dnd.DragGestureListener;
-import java.awt.dnd.DragSource;
 import java.awt.Dimension;
-import java.awt.EventQueue;
 import java.awt.Insets;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -19,7 +17,6 @@ import javax.swing.JLayeredPane;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
@@ -32,11 +29,7 @@ public class Kayttoliittyma implements Runnable {
     }
     
     Peli peli = new Peli();
-    
-    /**
-     * Peli-ikkunan ja valikon luominen.
-     */
-    
+       
     @Override
     public void run() {
         frame = new JFrame("Pasianssi");
@@ -45,8 +38,7 @@ public class Kayttoliittyma implements Runnable {
         luoKomponentit(frame.getContentPane());
         frame.pack();
         frame.setVisible(true);
-        
-    // Valikko  
+         
         JMenuBar valikko = new JMenuBar();
         JMenu pelimenu = new JMenu("Peli");
         JMenuItem lopeta = new JMenuItem("Lopeta");
@@ -68,7 +60,9 @@ public class Kayttoliittyma implements Runnable {
         Insets insets = container.getInsets();
             
     // Pakka
-        ImageIcon nurin = new ImageIcon("kortit/pakka.png");
+        try {
+        InputStream is = new BufferedInputStream(new FileInputStream("kortit/pakka.png"));
+        ImageIcon nurin = new ImageIcon(ImageIO.read(is));
         JButton pakka = new JButton(nurin);
         container.add(pakka);
         pakka.setBounds(25 + insets.left, 20 + insets.top, nurin.getIconWidth(), nurin.getIconHeight());
@@ -78,6 +72,9 @@ public class Kayttoliittyma implements Runnable {
         nakyvaPakka.setBounds(150, 20, 120, 200); 
         
         pakka.addActionListener(new PakkaKuuntelija(container, nakyvaPakka, peli));
+        } catch (Exception e) {
+            
+        }
     
     // Luodaan seitseman poytapinoa    
         JLayeredPane poytaPino1 = luoPoytaPino(0);
@@ -129,15 +126,16 @@ public class Kayttoliittyma implements Runnable {
      * Metodi luo oikean kokoisen pinon pöydälle, jossa päällimmäinen kortti on oikein päin, muut kuvapuoli alaspäin.
      * @param nro luotavan pinon korttien lukumäärä - 1
      * @return uusi pöytäpino
-     */
-       
+     */      
     public JLayeredPane luoPoytaPino(int nro) {
         JLayeredPane pinonKortit = new JLayeredPane();
         int sijainti = 0;
         for (int i = 0; i < peli.getPoytaPinot().get(nro).getPoytaPino().size(); i++) {
+            try {
             Kortti viiteKorttiin = peli.getPoytaPinot().get(nro).getPoytaPino().get(i);
             String tiedostonimi = getTiedostoNimi(viiteKorttiin);
-            ImageIcon kuvaKortista = new ImageIcon(tiedostonimi);            
+            InputStream is = new BufferedInputStream(new FileInputStream(tiedostonimi));
+            ImageIcon kuvaKortista = new ImageIcon(ImageIO.read(is));            
             if (viiteKorttiin.onkoOikeinPain() == false) {
                 kuvaKortista = new ImageIcon("kortit/pakka.png");
             }        
@@ -145,6 +143,8 @@ public class Kayttoliittyma implements Runnable {
             pakanKortti.setBounds(0, sijainti, kuvaKortista.getIconWidth(), kuvaKortista.getIconHeight());            
             pinonKortit.add(pakanKortti, i, -1);          
             sijainti = sijainti + 40;
+            } catch (Exception e) {         
+            }
         }       
         return pinonKortit;
     }  
@@ -153,16 +153,19 @@ public class Kayttoliittyma implements Runnable {
      * Metodi luo pelin pakan.
      * @return uusi pakka
      */ 
-    
     public JLayeredPane luoPakka() {       
         JLayeredPane pakanKortit = new JLayeredPane();
         for (int i = 0; i < peli.getPakka().getPakka().size(); i++) {
+            try {
             Kortti viiteKorttiin = peli.getPakka().getPakka().get(i);
             String tiedostonimi = getTiedostoNimi(viiteKorttiin);
-            ImageIcon kuvaKortista = new ImageIcon(tiedostonimi);
+            InputStream is = new BufferedInputStream(new FileInputStream(tiedostonimi));
+            ImageIcon kuvaKortista = new ImageIcon(ImageIO.read(is));
             JLabelKortti pakanKortti = new JLabelKortti(kuvaKortista, viiteKorttiin);
             pakanKortti.setBounds(0, 0, kuvaKortista.getIconWidth(), kuvaKortista.getIconHeight());
             pakanKortit.add(pakanKortti, i, -1);
+            } catch (Exception e) {              
+            }
         }       
         return pakanKortit;
     }
@@ -170,14 +173,17 @@ public class Kayttoliittyma implements Runnable {
     /**
      * Metodi luo tyhjän peruspinon, johon kortteja voidaan pinota sääntöjen mukaisesti.
      * @return uusi peruspino
-     */
-    
+     */   
     public JLayeredPane luoPerusPino() {
         JLayeredPane perusPino = new JLayeredPane();
-        ImageIcon kuva = new ImageIcon("kortit/tyhjapino.png");      
+        try {
+        InputStream is = new BufferedInputStream(new FileInputStream("kortit/tyhjapino.png"));
+        ImageIcon kuva = new ImageIcon(ImageIO.read(is));      
         JLabel tyhjaPino = new JLabel(kuva);
         tyhjaPino.setBounds(0, 0, kuva.getIconWidth(), kuva.getIconHeight());
         perusPino.add(tyhjaPino);
+        } catch (Exception e) {    
+        }
         return perusPino;
     }
     
@@ -185,8 +191,7 @@ public class Kayttoliittyma implements Runnable {
      * Metodi muodostaa tiettyä korttia vastaavan kuvan tiedostonimen.
      * @param kortti kortti, jota vastaava kuva halutaan löytää
      * @return korttia vastaavan kuvan tiedostonimi
-     */
-    
+     */  
     public String getTiedostoNimi(Kortti kortti) {
         String tiedostonimi = "kortit/" + kortti.getMaa() + kortti.getArvo() + ".png";
         return tiedostonimi;
