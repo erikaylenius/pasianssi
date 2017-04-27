@@ -28,7 +28,7 @@ Lisäksi kuninkaan voi siirtää tyhjälle "työskentelypakan" paikalle.
 ![Sekvenssikaavio: kortin siirtäminen peruspinoon](kortinSiirtoSkaavio.png "Sekvenssikaavio - kortin siirtäminen peruspinoon")
 
 
-##Ohjelman rakennekuvaus
+**Ohjelman rakennekuvaus**
 
 Käyttöliittymä ja sovelluslogiikka ovat ohjelmassa selkeästi eriytetyt. Main-metodi sijaitsee sovelluslogiikka-paketin luokassa Main. Main-metodi kutsuu luomaansa Käyttöliittymä-luokan ilmentymää luodakseen näkyvän peli-ikkunan. Käyttöliittymä puolestaan luo uuden sovelluslogiikkapuolen Peli-luokan ilmentymän. Pelin konstruktori luo kortit satunnaisilla paikoilla sisältävän alkuasetelman käyttäen apunaan luomaansa Arpoja-luokan ilmentymää. Arpoja luo 52 Kortti-luokan ilmentymää, jotka se jakaa pelin sääntöjen mukaisiin eri tyyppisiin "korttisäilöihin", ja palauttaa nämä pelille. Pakka-luokan, Peruspino-luokan sekä Pöytäpino-luokan ilmentymät sisältävät kukin ArrayListin, johon on talletettu niihin kuuluvat Kortti-luokan ilmentymät. Peruspino-luokan ilmentymien ArrayListit eivät sisällä pelin alkaessa yhtäkään korttia. Pelillä on yksi Pakka-luokan ilmentymä, neljä Peruspino-luokan ilmentymää sekä seitsemän Pöytäpino-luokan ilmentymää. Pelin alkaessa pakka sisältää 24 ja kukin pöytäpino yhdestä seitsemään Kortti-luokan ilmentymää, jokainen seitsemästä pöytäpinosta on eri kokoinen korttien lukumäärältään. "Korttisäilöjä" ja kortteja käsittelevät luokat sisältävät tietoa näiden oliotyyppien ominaisuuksista. Käyttöliittymästä päästään näiden luokkien ilmentymiin käsiksi Peli-luokan kautta.
 

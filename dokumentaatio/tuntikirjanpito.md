@@ -19,3 +19,4 @@ Päivä | Tunnit | Kuvaus
 
 25.4.2017 | 4 h | Käyttöliittymän ohjelmointia
 26.4.2017 | 9.5 h | Käyttöliittymän ohjelmointia
+27.4.2017 | 4 h | Vähän käyttöliittymän edistystä, käyttöohjeiden ja rakennekuvauksen laatiminen, aiemman viikon puutteiden korjaaminen, raporttien generoiminen
