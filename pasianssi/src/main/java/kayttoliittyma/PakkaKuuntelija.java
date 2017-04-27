@@ -12,12 +12,10 @@ package kayttoliittyma;
  
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.ImageIcon;
 import javax.swing.JLayeredPane;
 import java.awt.Container;
 import sovelluslogiikka.Kortti;
 import sovelluslogiikka.Peli;
-import sovelluslogiikka.Pakka;
 
 public class PakkaKuuntelija implements ActionListener {
 

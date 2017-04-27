@@ -71,8 +71,7 @@ public class Kayttoliittyma implements Runnable {
         nakyvaPakka.setBounds(150, 20, 120, 200); 
         
         pakka.addActionListener(new PakkaKuuntelija(container, nakyvaPakka, peli));
-
-        
+    
     // Luodaan seitseman poytapinoa    
         
         JLayeredPane poytaPino1 = luoPoytaPino(0);
@@ -104,22 +103,21 @@ public class Kayttoliittyma implements Runnable {
         poytaPino7.setBounds(775, 200, 120, 1000);
         
     // Luodaan nelja peruspinoa
-        
-        ImageIcon kuva = new ImageIcon("kortit/tyhjapino.png");      
-        JLabel perusPino1 = new JLabel(kuva);
-        perusPino1.setBounds(400, 20, kuva.getIconWidth(), kuva.getIconHeight());
+           
+        JLayeredPane perusPino1 = luoPerusPino();
+        perusPino1.setBounds(400, 20, 120, 163);
         container.add(perusPino1);
         
-        JLabel perusPino2 = new JLabel(kuva);
-        perusPino2.setBounds(525, 20, kuva.getIconWidth(), kuva.getIconHeight());
+        JLayeredPane perusPino2 = luoPerusPino();
+        perusPino2.setBounds(525, 20, 120, 163);
         container.add(perusPino2);
         
-        JLabel perusPino3 = new JLabel(kuva);
-        perusPino3.setBounds(650, 20, kuva.getIconWidth(), kuva.getIconHeight());
+        JLayeredPane perusPino3 = luoPerusPino();
+        perusPino3.setBounds(650, 20, 120, 163);
         container.add(perusPino3);
         
-        JLabel perusPino4 = new JLabel(kuva);
-        perusPino4.setBounds(775, 20, kuva.getIconWidth(), kuva.getIconHeight());
+        JLayeredPane perusPino4 = luoPerusPino();
+        perusPino4.setBounds(775, 20, 120, 163);
         container.add(perusPino4);
     }
 
@@ -152,13 +150,10 @@ public class Kayttoliittyma implements Runnable {
         return pinonKortit;
     }  
     
-    public String getTiedostoNimi(Kortti kortti) {
-        String tiedostonimi = "kortit/" + kortti.getMaa() + kortti.getArvo() + ".png";
-        return tiedostonimi;
-    }
     
     public JLayeredPane luoPakka() {
-    JLayeredPane pakanKortit = new JLayeredPane();
+        
+        JLayeredPane pakanKortit = new JLayeredPane();
 
         for (int i = 0; i < peli.getPakka().getPakka().size(); i++) {
             Kortti viiteKorttiin = peli.getPakka().getPakka().get(i);
@@ -170,8 +165,23 @@ public class Kayttoliittyma implements Runnable {
 
         }
         
-        
         return pakanKortit;
-    }     
+    }
+    
+    public JLayeredPane luoPerusPino() {
+
+        JLayeredPane perusPino = new JLayeredPane();
+        ImageIcon kuva = new ImageIcon("kortit/tyhjapino.png");      
+        JLabel tyhjaPino = new JLabel(kuva);
+        tyhjaPino.setBounds(0, 0, kuva.getIconWidth(), kuva.getIconHeight());
+        perusPino.add(tyhjaPino);
+        return perusPino;
+    }
+    
+    
+    public String getTiedostoNimi(Kortti kortti) {
+        String tiedostonimi = "kortit/" + kortti.getMaa() + kortti.getArvo() + ".png";
+        return tiedostonimi;
+    }
         
 }
