@@ -50,16 +50,15 @@ public class Peli {
         
     }
     
-
-    /**
-     * Metodi kertoo, millä ehdolla pelaaja pääsee pelin läpi.
- 
-     * @return palauttaa arvon true, jos peli on läpi
-     */
-    
     public void setValittuKortti(Kortti kortti) {
         this.valittuKortti = kortti;
     }
+    
+    /**
+     * Metodi kertoo, millä ehdolla pelaaja pääsee pelin läpi. 
+     * @return palauttaa arvon true, jos peli on läpi
+     */
+    
     public boolean peliLapi() {
         if (this.ekaPino.pinoValmis() && this.tokaPino.pinoValmis()) {
             if (this.kolmasPino.pinoValmis() && this.neljasPino.pinoValmis()) {
@@ -114,7 +113,6 @@ public class Peli {
         }      
     }
     
-    /* testausta helpottavia metodeja */
     public Pakka getPakka() {
         return this.pakka;
     }

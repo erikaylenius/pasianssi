@@ -11,7 +11,11 @@ import java.util.ArrayList;
 public class Poytapino {
 
     private ArrayList<Kortti> poytaPino;
-
+    
+    /**
+     * Konstruktori.
+     */
+    
     public Poytapino() {
         
         this.poytaPino = new ArrayList<Kortti>();
@@ -38,9 +42,20 @@ public class Poytapino {
         }
     }
     
+    /**
+     * Metodi palauttaa pinon koon kokonaislukuna.
+     * @return pinon koko
+     */
+    
     public int pinonKoko() {
         return this.poytaPino.size();
     }
+    
+    /**
+     * Metodi palauttaa pinossa indeksistä i löytyvän kortin.
+     * @param i haettava indeksi
+     * @return indeksistä i löytyvä kortti
+     */
     
     public Kortti getKortti(int i) {
         return this.poytaPino.get(i);

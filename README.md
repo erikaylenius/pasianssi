@@ -6,6 +6,8 @@ Yhden pelaajan korttipeli. Päästäkseen pelin loppuun on järjestettävä kaik
 
 [Aiheen kuvaus](dokumentaatio/aiheenKuvausJaRakenne.md)
 
+[Käyttöohjeet](dokumentaatio/kayttoohjeet.md)
+
 [Tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
 
 [Checkstyle-raportti](https://htmlpreview.github.io/?https://github.com/erikaylenius/pasianssi/blob/master/dokumentaatio/checkstyle/checkstyle.html)

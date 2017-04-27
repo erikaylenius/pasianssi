@@ -12,9 +12,18 @@ import java.util.ArrayList;
 public class Peruspino {
     private ArrayList<Kortti> perusPino;
     
+    /**
+     * Konstruktori.
+     */
+    
     public Peruspino() {
         this.perusPino = new ArrayList<Kortti>();
     }
+    
+    /**
+     * Metodi palauttaa pinon koon kokonaislukuna.
+     * @return pinon koko
+     */
     
     public int pinonKoko() {
         return this.perusPino.size();
@@ -41,6 +50,12 @@ public class Peruspino {
     public void poistaPinosta(Kortti kortti) {
         this.perusPino.remove(kortti);
     }
+    
+    /**
+     * Metodi palauttaa pinossa indeksistä i löytyvän kortin.
+     * @param i haettava indeksi
+     * @return indeksistä i löytyvä kortti
+     */
     
     public Kortti getKortti(int i) {
         return this.perusPino.get(i);

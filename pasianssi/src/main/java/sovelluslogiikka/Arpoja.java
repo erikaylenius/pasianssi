@@ -88,11 +88,20 @@ public class Arpoja {
         } 
     }
     
-    /* Testaamista auttavia metodeja: */   
+    
+    /**
+     * Testaamista auttava metodi.
+     * @return pelin kaikkien korttien lukumäärä kokonaislukuna
+     */
     
     public int kaikkienKorttienLkm() {
         return this.kaikki.size();
     }
+    
+    /**
+     * Testaamista auttava metodi.
+     * @return pelin kaikki kortit listana
+     */
     
     public ArrayList<Kortti> kaikkiKortit() {
         return this.kaikki;
