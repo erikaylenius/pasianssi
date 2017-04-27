@@ -34,15 +34,11 @@ public Container container;
 
     @Override
     public void actionPerformed(ActionEvent ae) {       
-        //Kortti seuraavaPakassa = peli.getPakka().naytaSeuraava();
-        //ImageIcon seuraavanKuva = new ImageIcon(getTiedostoNimi(seuraavaPakassa));
-        ////JLabelKortti seuraavaJLabelKortti = new JLabelKortti(seuraavanKuva, seuraavaPakassa);
-        //this.paallimmainen.setKortti(seuraavaPakassa);
-        //this.paallimmainen.setKuva(seuraavanKuva);
         
-        JLabelKortti komponentti = (JLabelKortti) this.nakyvaPakka.getComponent(1);
-            this.nakyvaPakka.setLayer(this.nakyvaPakka.getComponent(0), 1);
-            this.nakyvaPakka.setLayer(komponentti, 0);
+
+        JLabelKortti komponentti = (JLabelKortti) this.nakyvaPakka.getComponent(0);
+            this.nakyvaPakka.setLayer(komponentti, -1);
+
         }
     
     

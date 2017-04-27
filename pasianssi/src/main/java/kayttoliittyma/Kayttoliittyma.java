@@ -68,16 +68,11 @@ public class Kayttoliittyma implements Runnable {
         
         JLayeredPane nakyvaPakka = luoPakka();
         container.add(nakyvaPakka);
-        nakyvaPakka.setBounds(150, 20, 120, 200);
-        
-        //Kortti paallimmainenKortti = peli.getPakka().getPaallimmainen();
-        //ImageIcon paallimmaisenKuva = new ImageIcon(getTiedostoNimi(paallimmainenKortti));
-        //JLabelKortti paallimmainen = new JLabelKortti(paallimmaisenKuva, paallimmainenKortti);
-        //paallimmainen.setBounds(150, 20, paallimmaisenKuva.getIconWidth(), paallimmaisenKuva.getIconHeight());
-        //container.add(paallimmainen);
+        nakyvaPakka.setBounds(150, 20, 120, 200); 
         
         pakka.addActionListener(new PakkaKuuntelija(container, nakyvaPakka, peli));
-    
+
+        
     // Luodaan seitseman poytapinoa    
         
         JLayeredPane poytaPino1 = luoPoytaPino(0);
