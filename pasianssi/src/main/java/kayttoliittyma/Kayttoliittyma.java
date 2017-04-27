@@ -61,17 +61,17 @@ public class Kayttoliittyma implements Runnable {
             
     // Pakka
         try {
-        InputStream is = getClass().getClassLoader().getResourceAsStream("kortit/pakka.png");
-        ImageIcon nurin = new ImageIcon(ImageIO.read(is));
-        JButton pakka = new JButton(nurin);
-        container.add(pakka);
-        pakka.setBounds(25 + insets.left, 20 + insets.top, nurin.getIconWidth(), nurin.getIconHeight());
+            InputStream is = getClass().getClassLoader().getResourceAsStream("kortit/pakka.png");
+            ImageIcon nurin = new ImageIcon(ImageIO.read(is));
+            JButton pakka = new JButton(nurin);
+            container.add(pakka);
+            pakka.setBounds(25 + insets.left, 20 + insets.top, nurin.getIconWidth(), nurin.getIconHeight());
         
-        JLayeredPane nakyvaPakka = luoPakka();
-        container.add(nakyvaPakka);
-        nakyvaPakka.setBounds(150, 20, 120, 200); 
+            JLayeredPane nakyvaPakka = luoPakka();
+            container.add(nakyvaPakka);
+            nakyvaPakka.setBounds(150, 20, 120, 200); 
         
-        pakka.addActionListener(new PakkaKuuntelija(container, nakyvaPakka, peli));
+            pakka.addActionListener(new PakkaKuuntelija(container, nakyvaPakka, peli));
         } catch (Exception e) {
             
         }
@@ -132,18 +132,18 @@ public class Kayttoliittyma implements Runnable {
         int sijainti = 0;
         for (int i = 0; i < peli.getPoytaPinot().get(nro).getPoytaPino().size(); i++) {
             try {
-            Kortti viiteKorttiin = peli.getPoytaPinot().get(nro).getPoytaPino().get(i);
-            String tiedostonimi = getTiedostoNimi(viiteKorttiin);
-            InputStream is = getClass().getClassLoader().getResourceAsStream(tiedostonimi);
-            ImageIcon kuvaKortista = new ImageIcon(ImageIO.read(is));            
-            if (viiteKorttiin.onkoOikeinPain() == false) {
-                InputStream is2 = getClass().getClassLoader().getResourceAsStream("kortit/pakka.png");
-                kuvaKortista = new ImageIcon(ImageIO.read(is2));
-            }        
-            JLabelKortti pakanKortti = new JLabelKortti(kuvaKortista, viiteKorttiin);
-            pakanKortti.setBounds(0, sijainti, kuvaKortista.getIconWidth(), kuvaKortista.getIconHeight());            
-            pinonKortit.add(pakanKortti, i, -1);          
-            sijainti = sijainti + 40;
+                Kortti viiteKorttiin = peli.getPoytaPinot().get(nro).getPoytaPino().get(i);
+                String tiedostonimi = getTiedostoNimi(viiteKorttiin);
+                InputStream is = getClass().getClassLoader().getResourceAsStream(tiedostonimi);
+                ImageIcon kuvaKortista = new ImageIcon(ImageIO.read(is));            
+                if (viiteKorttiin.onkoOikeinPain() == false) {
+                    InputStream is2 = getClass().getClassLoader().getResourceAsStream("kortit/pakka.png");
+                    kuvaKortista = new ImageIcon(ImageIO.read(is2));
+                }        
+                JLabelKortti pakanKortti = new JLabelKortti(kuvaKortista, viiteKorttiin);
+                pakanKortti.setBounds(0, sijainti, kuvaKortista.getIconWidth(), kuvaKortista.getIconHeight());            
+                pinonKortit.add(pakanKortti, i, -1);          
+                sijainti = sijainti + 40;
             } catch (Exception e) {         
             }
         }       
@@ -158,13 +158,13 @@ public class Kayttoliittyma implements Runnable {
         JLayeredPane pakanKortit = new JLayeredPane();
         for (int i = 0; i < peli.getPakka().getPakka().size(); i++) {
             try {
-            Kortti viiteKorttiin = peli.getPakka().getPakka().get(i);
-            String tiedostonimi = getTiedostoNimi(viiteKorttiin);
-            InputStream is = getClass().getClassLoader().getResourceAsStream(tiedostonimi);
-            ImageIcon kuvaKortista = new ImageIcon(ImageIO.read(is));
-            JLabelKortti pakanKortti = new JLabelKortti(kuvaKortista, viiteKorttiin);
-            pakanKortti.setBounds(0, 0, kuvaKortista.getIconWidth(), kuvaKortista.getIconHeight());
-            pakanKortit.add(pakanKortti, i, -1);
+                Kortti viiteKorttiin = peli.getPakka().getPakka().get(i);
+                String tiedostonimi = getTiedostoNimi(viiteKorttiin);
+                InputStream is = getClass().getClassLoader().getResourceAsStream(tiedostonimi);
+                ImageIcon kuvaKortista = new ImageIcon(ImageIO.read(is));
+                JLabelKortti pakanKortti = new JLabelKortti(kuvaKortista, viiteKorttiin);
+                pakanKortti.setBounds(0, 0, kuvaKortista.getIconWidth(), kuvaKortista.getIconHeight());
+                pakanKortit.add(pakanKortti, i, -1);
             } catch (Exception e) {              
             }
         }       
@@ -178,11 +178,11 @@ public class Kayttoliittyma implements Runnable {
     public JLayeredPane luoPerusPino() {
         JLayeredPane perusPino = new JLayeredPane();
         try {
-        InputStream is = getClass().getClassLoader().getResourceAsStream("kortit/tyhjapino.png");
-        ImageIcon kuva = new ImageIcon(ImageIO.read(is));      
-        JLabel tyhjaPino = new JLabel(kuva);
-        tyhjaPino.setBounds(0, 0, kuva.getIconWidth(), kuva.getIconHeight());
-        perusPino.add(tyhjaPino);
+            InputStream is = getClass().getClassLoader().getResourceAsStream("kortit/tyhjapino.png");
+            ImageIcon kuva = new ImageIcon(ImageIO.read(is));      
+            JLabel tyhjaPino = new JLabel(kuva);
+            tyhjaPino.setBounds(0, 0, kuva.getIconWidth(), kuva.getIconHeight());
+            perusPino.add(tyhjaPino);
         } catch (Exception e) {    
         }
         return perusPino;
