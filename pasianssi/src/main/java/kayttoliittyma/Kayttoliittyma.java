@@ -10,6 +10,8 @@ import java.awt.Color;
 import java.awt.Container;
 import java.awt.Cursor; 
 /* */
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.dnd.DnDConstants;
 import java.awt.dnd.DragGestureListener;
 import java.awt.dnd.DragSource;
@@ -21,6 +23,9 @@ import java.awt.Insets;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 /* */
@@ -49,6 +54,26 @@ public class Kayttoliittyma implements Runnable {
 
         frame.pack();
         frame.setVisible(true);
+        
+    // Valikko
+    
+        JMenuBar valikko = new JMenuBar();
+        JMenu pelimenu = new JMenu("Peli");
+   
+        JMenuItem lopeta = new JMenuItem("Lopeta");
+        
+        lopeta.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            System.exit(0);
+            }
+        });
+        
+        pelimenu.add(lopeta);
+        valikko.add(pelimenu);
+        frame.setJMenuBar(valikko);
+        
+        
     }
 
     private void luoKomponentit(Container container) {
@@ -58,7 +83,8 @@ public class Kayttoliittyma implements Runnable {
 
         
         Insets insets = container.getInsets();
-      
+        
+        
     // Pakka
     
         ImageIcon nurin = new ImageIcon("kortit/pakka.png");
@@ -119,6 +145,14 @@ public class Kayttoliittyma implements Runnable {
         JLayeredPane perusPino4 = luoPerusPino();
         perusPino4.setBounds(775, 20, 120, 163);
         container.add(perusPino4);
+        
+        
+        Kortinsiirto hiiri = new Kortinsiirto(poytaPino2, perusPino1);
+        poytaPino2.addMouseListener(hiiri);
+        poytaPino2.addMouseMotionListener(hiiri);
+        
+       
+        
     }
 
     public JFrame getFrame() {
