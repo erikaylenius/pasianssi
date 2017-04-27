@@ -61,7 +61,7 @@ public class Kayttoliittyma implements Runnable {
             
     // Pakka
         try {
-        InputStream is = new BufferedInputStream(new FileInputStream("kortit/pakka.png"));
+        InputStream is = getClass().getClassLoader().getResourceAsStream("kortit/pakka.png");
         ImageIcon nurin = new ImageIcon(ImageIO.read(is));
         JButton pakka = new JButton(nurin);
         container.add(pakka);
@@ -134,10 +134,11 @@ public class Kayttoliittyma implements Runnable {
             try {
             Kortti viiteKorttiin = peli.getPoytaPinot().get(nro).getPoytaPino().get(i);
             String tiedostonimi = getTiedostoNimi(viiteKorttiin);
-            InputStream is = new BufferedInputStream(new FileInputStream(tiedostonimi));
+            InputStream is = getClass().getClassLoader().getResourceAsStream(tiedostonimi);
             ImageIcon kuvaKortista = new ImageIcon(ImageIO.read(is));            
             if (viiteKorttiin.onkoOikeinPain() == false) {
-                kuvaKortista = new ImageIcon("kortit/pakka.png");
+                InputStream is2 = getClass().getClassLoader().getResourceAsStream("kortit/pakka.png");
+                kuvaKortista = new ImageIcon(ImageIO.read(is2));
             }        
             JLabelKortti pakanKortti = new JLabelKortti(kuvaKortista, viiteKorttiin);
             pakanKortti.setBounds(0, sijainti, kuvaKortista.getIconWidth(), kuvaKortista.getIconHeight());            
@@ -159,7 +160,7 @@ public class Kayttoliittyma implements Runnable {
             try {
             Kortti viiteKorttiin = peli.getPakka().getPakka().get(i);
             String tiedostonimi = getTiedostoNimi(viiteKorttiin);
-            InputStream is = new BufferedInputStream(new FileInputStream(tiedostonimi));
+            InputStream is = getClass().getClassLoader().getResourceAsStream(tiedostonimi);
             ImageIcon kuvaKortista = new ImageIcon(ImageIO.read(is));
             JLabelKortti pakanKortti = new JLabelKortti(kuvaKortista, viiteKorttiin);
             pakanKortti.setBounds(0, 0, kuvaKortista.getIconWidth(), kuvaKortista.getIconHeight());
@@ -177,7 +178,7 @@ public class Kayttoliittyma implements Runnable {
     public JLayeredPane luoPerusPino() {
         JLayeredPane perusPino = new JLayeredPane();
         try {
-        InputStream is = new BufferedInputStream(new FileInputStream("kortit/tyhjapino.png"));
+        InputStream is = getClass().getClassLoader().getResourceAsStream("kortit/tyhjapino.png");
         ImageIcon kuva = new ImageIcon(ImageIO.read(is));      
         JLabel tyhjaPino = new JLabel(kuva);
         tyhjaPino.setBounds(0, 0, kuva.getIconWidth(), kuva.getIconHeight());
