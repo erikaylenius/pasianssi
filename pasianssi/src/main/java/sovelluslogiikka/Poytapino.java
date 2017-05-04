@@ -61,6 +61,8 @@ public class Poytapino {
         return this.poytaPino.get(i);
     }
     
+
+    
     public ArrayList<Kortti> getPoytaPino() {
         return this.poytaPino;
     }
@@ -85,6 +87,25 @@ public class Poytapino {
                     }
                 } 
             }
+        }    
+    }
+    
+    public boolean voikoLisataPinoon(Kortti kortti) {
+         if (poytaPino.isEmpty()) {
+            if (kortti.getArvo() == 13) {
+                return true;
+            }
+            return false;
+        } else {
+            if (poytaPino.get(poytaPino.size() - 1).onkoOikeinPain()) {
+                if (!poytaPino.get(poytaPino.size() - 1).getVari().equals(kortti.getVari())) {
+                    if ((poytaPino.get(poytaPino.size() - 1).getArvo()) == (kortti.getArvo() + 1)) {
+                        poytaPino.get(poytaPino.size() - 1).kaanna();
+                        return true;
+                    }
+                } 
+            }
+            return false;
         }    
     }
     

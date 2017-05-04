@@ -2,15 +2,17 @@
 package kayttoliittyma;
 import sovelluslogiikka.*;
 import java.io.InputStream;
-import java.io.BufferedInputStream;
-import java.io.FileInputStream;
 import javax.imageio.ImageIO;
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.Cursor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Dimension;
+import java.awt.Image;
 import java.awt.Insets;
+import java.awt.Point;
+import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
@@ -49,12 +51,24 @@ public class Kayttoliittyma implements Runnable {
             }
         });
         pelimenu.add(lopeta);
+        
+        JMenuItem uusiPeli = new JMenuItem("Uusi peli");
+        uusiPeli.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                peli = new Peli();
+                luoKomponentit(frame.getContentPane());
+                frame.repaint();
+            }
+        });
+        pelimenu.add(uusiPeli);
         valikko.add(pelimenu);
         frame.setJMenuBar(valikko);      
     }
 
     private void luoKomponentit(Container container) {
         Color tausta = new Color(193, 186, 188);
+        
         container.setLayout(null);
         container.setBackground(tausta);
         Insets insets = container.getInsets();
@@ -77,45 +91,53 @@ public class Kayttoliittyma implements Runnable {
         }
     
     // Luodaan seitseman poytapinoa    
-        JLayeredPane poytaPino1 = luoPoytaPino(0);
+        JLayeredPane poytaPino1 = luoPoytaPino(0, peli.getPoytaPinot().get(0));
         container.add(poytaPino1);
-        poytaPino1.setBounds(25, 200, 120, 400);
-        JLayeredPane poytaPino2 = luoPoytaPino(1);
+        poytaPino1.setBounds(25, 200, 120, 1000);
+        JLayeredPane poytaPino2 = luoPoytaPino(1, peli.getPoytaPinot().get(1));
         container.add(poytaPino2);
-        poytaPino2.setBounds(150, 200, 120, 400);
-        JLayeredPane poytaPino3 = luoPoytaPino(2);
+        poytaPino2.setBounds(150, 200, 120, 1000);
+        JLayeredPane poytaPino3 = luoPoytaPino(2, peli.getPoytaPinot().get(2));
         container.add(poytaPino3);
-        poytaPino3.setBounds(275, 200, 120, 400);
-        JLayeredPane poytaPino4 = luoPoytaPino(3);
+        poytaPino3.setBounds(275, 200, 120, 1000);
+        JLayeredPane poytaPino4 = luoPoytaPino(3, peli.getPoytaPinot().get(3));
         container.add(poytaPino4);
-        poytaPino4.setBounds(400, 200, 120, 400);
-        JLayeredPane poytaPino5 = luoPoytaPino(4);
+        poytaPino4.setBounds(400, 200, 120, 1000);
+        JLayeredPane poytaPino5 = luoPoytaPino(4, peli.getPoytaPinot().get(4));
         container.add(poytaPino5);
-        poytaPino5.setBounds(525, 200, 120, 400);
-        JLayeredPane poytaPino6 = luoPoytaPino(5);
+        poytaPino5.setBounds(525, 200, 120, 1000);
+        JLayeredPane poytaPino6 = luoPoytaPino(5, peli.getPoytaPinot().get(5));
         container.add(poytaPino6);
-        poytaPino6.setBounds(650, 200, 120, 400);      
-        JLayeredPane poytaPino7 = luoPoytaPino(6);
+        poytaPino6.setBounds(650, 200, 120, 1000);      
+        JLayeredPane poytaPino7 = luoPoytaPino(6, peli.getPoytaPinot().get(6));
         container.add(poytaPino7);
         poytaPino7.setBounds(775, 200, 120, 1000);
         
     // Luodaan nelja peruspinoa          
-        JLayeredPane perusPino1 = luoPerusPino();
+        JLayeredPane perusPino1 = luoPerusPino(peli.getPerusPinot().get(0));
         perusPino1.setBounds(400, 20, 120, 163);
         container.add(perusPino1);
-        JLayeredPane perusPino2 = luoPerusPino();
+        JLayeredPane perusPino2 = luoPerusPino(peli.getPerusPinot().get(1));
         perusPino2.setBounds(525, 20, 120, 163);
         container.add(perusPino2);
-        JLayeredPane perusPino3 = luoPerusPino();
+        JLayeredPane perusPino3 = luoPerusPino(peli.getPerusPinot().get(2));
         perusPino3.setBounds(650, 20, 120, 163);
         container.add(perusPino3);
-        JLayeredPane perusPino4 = luoPerusPino();
+        JLayeredPane perusPino4 = luoPerusPino(peli.getPerusPinot().get(3));
         perusPino4.setBounds(775, 20, 120, 163);
         container.add(perusPino4);
         
-        Kortinsiirto hiiri = new Kortinsiirto(poytaPino2, perusPino1);
-        poytaPino2.addMouseListener(hiiri);
-        poytaPino2.addMouseMotionListener(hiiri);    
+        Kortinsiirto hiiri = new Kortinsiirto(container);
+        container.addMouseListener(hiiri);
+        container.addMouseMotionListener(hiiri);    
+        
+        /*
+         Toolkit toolkit = Toolkit.getDefaultToolkit();
+        ImageIcon kursoriImageIcon = new ImageIcon("kortit/hertta1.png");
+        Image kursoriImage = kursoriImageIcon.getImage();
+        Cursor kursori = toolkit.createCustomCursor(kursoriImage, new Point(0, 0), "korttikursori");
+        container.setCursor(kursori);
+        */
     }
 
     public JFrame getFrame() {
@@ -125,10 +147,11 @@ public class Kayttoliittyma implements Runnable {
     /**
      * Metodi luo oikean kokoisen pinon pöydälle, jossa päällimmäinen kortti on oikein päin, muut kuvapuoli alaspäin.
      * @param nro luotavan pinon korttien lukumäärä - 1
+     * @param poytapino sovelluslogiikan pino, johon pöytäpino liittyy
      * @return uusi pöytäpino
      */      
-    public JLayeredPane luoPoytaPino(int nro) {
-        JLayeredPane pinonKortit = new JLayeredPane();
+    public JLayeredPane luoPoytaPino(int nro, Poytapino poytapino) {
+        JLayeredPanePoytaPino pinonKortit = new JLayeredPanePoytaPino(poytapino);
         int sijainti = 0;
         for (int i = 0; i < peli.getPoytaPinot().get(nro).getPoytaPino().size(); i++) {
             try {
@@ -173,16 +196,18 @@ public class Kayttoliittyma implements Runnable {
     
     /**
      * Metodi luo tyhjän peruspinon, johon kortteja voidaan pinota sääntöjen mukaisesti.
+     * @param peruspino sovelluslogiikan luokassa Peli oleva peruspino, jota 
+     * visualisoidaan JLayeredPanella
      * @return uusi peruspino
      */   
-    public JLayeredPane luoPerusPino() {
-        JLayeredPane perusPino = new JLayeredPane();
+    public JLayeredPane luoPerusPino(Peruspino peruspino) {
+        JLayeredPanePerusPino perusPino = new JLayeredPanePerusPino(peruspino);
         try {
             InputStream is = getClass().getClassLoader().getResourceAsStream("kortit/tyhjapino.png");
             ImageIcon kuva = new ImageIcon(ImageIO.read(is));      
             JLabel tyhjaPino = new JLabel(kuva);
             tyhjaPino.setBounds(0, 0, kuva.getIconWidth(), kuva.getIconHeight());
-            perusPino.add(tyhjaPino);
+            perusPino.add(tyhjaPino, -1);
         } catch (Exception e) {    
         }
         return perusPino;
