@@ -1,6 +1,5 @@
 package sovelluslogiikka;
 
-
 /**
  * Luokka määrittelee kaikkien 52 kortin ominaisuudet.
  */
@@ -12,6 +11,14 @@ public class Kortti {
     private int arvo;
     private boolean oikeinPain;
 
+    
+/**
+ * Konstruktori.
+ * @param maa kortin maa (hertta, ruutu, pata, risti)
+ * @param vari kortin väri (musta tai punainen)
+ * @param arvo kortin arvo, väliltä 1-13
+ */ 
+    
     public Kortti(String maa, String vari, int arvo) {
         
         this.maa = maa;

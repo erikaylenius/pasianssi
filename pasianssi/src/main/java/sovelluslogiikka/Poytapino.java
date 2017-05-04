@@ -90,8 +90,14 @@ public class Poytapino {
         }    
     }
     
+    /**
+     * Metodi kertoo, voiko valitun kortin lisätä pöytäpinoon.
+     * @param kortti kortti, jota yritetään lisätä
+     * @return totuusarvo
+     */
+    
     public boolean voikoLisataPinoon(Kortti kortti) {
-         if (poytaPino.isEmpty()) {
+        if (poytaPino.isEmpty()) {
             if (kortti.getArvo() == 13) {
                 return true;
             }

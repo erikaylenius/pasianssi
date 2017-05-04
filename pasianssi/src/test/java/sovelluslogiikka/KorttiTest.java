@@ -36,9 +36,16 @@ public class KorttiTest {
     }
     
     @Test
-    public void kaantyyko() {
+    public void kaantyykoVaarinPain() {
         kortti.kaanna();
         assertEquals(false, kortti.onkoOikeinPain());
+    }
+    
+    @Test
+    public void kaantyykoOikeinPain() {
+        kortti.kaanna();
+        kortti.kaanna();
+        assertEquals(true, kortti.onkoOikeinPain());
     }
     
     

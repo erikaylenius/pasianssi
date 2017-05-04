@@ -5,10 +5,7 @@
  */
 package sovelluslogiikka;
 
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -53,5 +50,10 @@ public class PakkaTest {
     public void onkoKortitOikeinPain() {
         assertEquals(pakka.getPakka().get(0).onkoOikeinPain(), "true");
         
+    }
+    
+    public void poistaakoKortinPakasta() {
+        pakka.poistaPakasta(pakka.getPaallimmainen());
+        assertEquals(pakka.getPakka().size(), 2);
     }
 }

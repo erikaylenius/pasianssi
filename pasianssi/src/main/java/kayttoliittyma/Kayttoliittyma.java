@@ -5,14 +5,10 @@ import java.io.InputStream;
 import javax.imageio.ImageIO;
 import java.awt.Color;
 import java.awt.Container;
-import java.awt.Cursor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Dimension;
-import java.awt.Image;
 import java.awt.Insets;
-import java.awt.Point;
-import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
@@ -23,13 +19,18 @@ import javax.swing.WindowConstants;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
 
+/**
+ * Luokka luo käyttöliittymän näkyvät visuaaliset komponentit.
+ */
+
 public class Kayttoliittyma implements Runnable {
-
     private JFrame frame;
-
+    
+    /**
+     * Konstruktori.
+     */
     public Kayttoliittyma() {
     }
-    
     Peli peli = new Peli();
        
     @Override
@@ -51,28 +52,15 @@ public class Kayttoliittyma implements Runnable {
             }
         });
         pelimenu.add(lopeta);
-        
-        JMenuItem uusiPeli = new JMenuItem("Uusi peli");
-        uusiPeli.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                peli = new Peli();
-                luoKomponentit(frame.getContentPane());
-                frame.repaint();
-            }
-        });
-        pelimenu.add(uusiPeli);
         valikko.add(pelimenu);
         frame.setJMenuBar(valikko);      
     }
 
     private void luoKomponentit(Container container) {
         Color tausta = new Color(193, 186, 188);
-        
         container.setLayout(null);
         container.setBackground(tausta);
-        Insets insets = container.getInsets();
-            
+        Insets insets = container.getInsets();    
     // Pakka
         try {
             InputStream is = getClass().getClassLoader().getResourceAsStream("kortit/pakka.png");
@@ -80,16 +68,12 @@ public class Kayttoliittyma implements Runnable {
             JButton pakka = new JButton(nurin);
             container.add(pakka);
             pakka.setBounds(25 + insets.left, 20 + insets.top, nurin.getIconWidth(), nurin.getIconHeight());
-        
             JLayeredPane nakyvaPakka = luoPakka();
             container.add(nakyvaPakka);
             nakyvaPakka.setBounds(150, 20, 120, 200); 
-        
-            pakka.addActionListener(new PakkaKuuntelija(container, nakyvaPakka, peli));
-        } catch (Exception e) {
-            
+            pakka.addActionListener(new PakkaKuuntelija(container, nakyvaPakka));
+        } catch (Exception e) {   
         }
-    
     // Luodaan seitseman poytapinoa    
         JLayeredPane poytaPino1 = luoPoytaPino(0, peli.getPoytaPinot().get(0));
         container.add(poytaPino1);
@@ -112,7 +96,6 @@ public class Kayttoliittyma implements Runnable {
         JLayeredPane poytaPino7 = luoPoytaPino(6, peli.getPoytaPinot().get(6));
         container.add(poytaPino7);
         poytaPino7.setBounds(775, 200, 120, 1000);
-        
     // Luodaan nelja peruspinoa          
         JLayeredPane perusPino1 = luoPerusPino(peli.getPerusPinot().get(0));
         perusPino1.setBounds(400, 20, 120, 163);
@@ -126,18 +109,10 @@ public class Kayttoliittyma implements Runnable {
         JLayeredPane perusPino4 = luoPerusPino(peli.getPerusPinot().get(3));
         perusPino4.setBounds(775, 20, 120, 163);
         container.add(perusPino4);
-        
+    // Lisätään kuuntelija    
         Kortinsiirto hiiri = new Kortinsiirto(container);
         container.addMouseListener(hiiri);
         container.addMouseMotionListener(hiiri);    
-        
-        /*
-         Toolkit toolkit = Toolkit.getDefaultToolkit();
-        ImageIcon kursoriImageIcon = new ImageIcon("kortit/hertta1.png");
-        Image kursoriImage = kursoriImageIcon.getImage();
-        Cursor kursori = toolkit.createCustomCursor(kursoriImage, new Point(0, 0), "korttikursori");
-        container.setCursor(kursori);
-        */
     }
 
     public JFrame getFrame() {
@@ -217,7 +192,7 @@ public class Kayttoliittyma implements Runnable {
      * Metodi muodostaa tiettyä korttia vastaavan kuvan tiedostonimen.
      * @param kortti kortti, jota vastaava kuva halutaan löytää
      * @return korttia vastaavan kuvan tiedostonimi
-     */  
+     */ 
     public String getTiedostoNimi(Kortti kortti) {
         String tiedostonimi = "kortit/" + kortti.getMaa() + kortti.getArvo() + ".png";
         return tiedostonimi;

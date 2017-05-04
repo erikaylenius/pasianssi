@@ -25,6 +25,10 @@ public class Peli {
     private Pakka pakka;
     public Kortti valittuKortti;
     
+    /**
+     * Konstruktori, joka alustaa pelin ja luo kaikki pelin pinot käyttäen apunaan Arpoja-luokkaa.
+     */
+    
     public Peli() {
         
         this.korttienJako = new Arpoja();
@@ -52,21 +56,6 @@ public class Peli {
     
     public void setValittuKortti(Kortti kortti) {
         this.valittuKortti = kortti;
-    }
-    
-    /**
-     * Metodi kertoo, millä ehdolla pelaaja pääsee pelin läpi. 
-     * @return palauttaa arvon true, jos peli on läpi
-     */
-    
-    public boolean peliLapi() {
-        if (this.ekaPino.pinoValmis() && this.tokaPino.pinoValmis()) {
-            if (this.kolmasPino.pinoValmis() && this.neljasPino.pinoValmis()) {
-                return true;
-            }
-        }    
-    
-        return false;
     }
     
     /**
@@ -117,6 +106,11 @@ public class Peli {
         return this.pakka;
     }
     
+    /**
+     * Metodi palauttaa kaikki pelin arvotut pöytäpinot ArrayListina.
+     * @return pöytäpinot sisältävä ArrayList
+     */
+    
     public ArrayList<Poytapino> getPoytaPinot() {
         ArrayList<Poytapino> palautettava = new ArrayList<>();
         palautettava.add(yksiAlussa); 
@@ -128,6 +122,11 @@ public class Peli {
         palautettava.add(seitsemanAlussa);
         return palautettava;
     }
+    
+    /**
+     * Metodi palauttaa kaikki pelin arvotut peruspinot ArrayListina.
+     * @return peruspinot sisältävä ArrayList
+     */
     
     public ArrayList<Peruspino> getPerusPinot() {
         ArrayList<Peruspino> palautettava = new ArrayList<>();

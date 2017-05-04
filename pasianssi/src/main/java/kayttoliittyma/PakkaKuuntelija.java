@@ -4,18 +4,25 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JLayeredPane;
 import java.awt.Container;
-import sovelluslogiikka.Peli;
+
+/**
+ * Luokka kuuntelee pakkaan kohdistuvia hiiren klikkauksia ja huolehtii seuraavan 
+ * kortin näyttämisestä.
+ */
 
 public class PakkaKuuntelija implements ActionListener {
 
     public JLayeredPane nakyvaPakka;
-    public Peli peli;
     public Container container;
     
-    public PakkaKuuntelija(Container container, JLayeredPane nakyvaPakka, Peli peli) {
+    /**
+     * Konstruktori.
+     * @param container pakan sisältävä container
+     * @param nakyvaPakka pakkaa visualisoiva JLabelKortti-pino
+     */
+    public PakkaKuuntelija(Container container, JLayeredPane nakyvaPakka) {
         this.container = container;
         this.nakyvaPakka = nakyvaPakka;
-        this.peli = peli;
     }
     
     /**
@@ -32,9 +39,4 @@ public class PakkaKuuntelija implements ActionListener {
 
     }
     
-    /**
-     * Metodi muodostaa korttia vastaavan kuvan tiedostonimen hyödyntämällä kortin tietoja.
-     * @param kortti kortti, jota vastaavan kuvan tiedostonimeä haetaan
-     * @return korttia vastaavan kuvan tiedostonimi
-     */
 }

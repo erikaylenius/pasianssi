@@ -78,4 +78,11 @@ public class PoytapinoTest {
         pino.lisaaKorttiPaalle(muu);
         assertEquals(0, pino.pinonKoko());
     }
+    
+    @Test
+    public void voikoLisataPinoon() {
+        Kortti muu = new Kortti("pata", "musta", 2);
+        assertEquals(false, pino.voikoLisataPinoon(muu));
+    }
+    
 }

@@ -12,6 +12,9 @@ import java.util.Collections;
 public class Arpoja {
     private ArrayList<Kortti> kaikki;
     
+    /**
+     * Konstruktori.
+     */
     
     public Arpoja() {
         this.kaikki = new ArrayList<Kortti>();

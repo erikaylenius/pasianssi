@@ -1,25 +1,22 @@
 package sovelluslogiikka;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author eylenius
- */
-
 import javax.swing.SwingUtilities;
 import kayttoliittyma.Kayttoliittyma;
 
+/**
+ * Main-metodin sisältävä luokka, joka käynnistää pelin.
+ */
+
 public class Main {
+    
+    /**
+     * Main-metodi.
+     * @param args 
+     */
     
     public static void main(String[] args) {
         Kayttoliittyma kayttoliittyma = new Kayttoliittyma();
-        SwingUtilities.invokeLater(kayttoliittyma);
-        
+        SwingUtilities.invokeLater(kayttoliittyma);     
 
     }
     

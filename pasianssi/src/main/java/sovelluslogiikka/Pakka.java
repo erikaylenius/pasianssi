@@ -11,6 +11,10 @@ public class Pakka {
     private ArrayList<Kortti> pakka;
     private Kortti paallimmainen;
     
+    /**
+     * Konstruktori.
+     */
+    
     public Pakka() {
         this.pakka = new ArrayList<Kortti>();
         this.paallimmainen = null;
@@ -50,6 +54,10 @@ public class Pakka {
         return this.paallimmainen;
     }
     
+    /**
+     * Metodi palauttaa pakan koon kokonaislukuna.
+     * @return pakan koko
+     */
     
     public int pakanKoko() {
         return this.pakka.size();

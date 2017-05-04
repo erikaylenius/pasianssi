@@ -6,12 +6,23 @@ import javax.swing.JLayeredPane;
 import javax.swing.ImageIcon;
 import sovelluslogiikka.Kortti;
 
+/**
+ * Luokka määrittelee JLabel-luokan perivän JLabelKortin ominaisuudet. Erityisenä 
+ * piirteenä kuhunkin JLabelKorttiin liittyy jokin tietty kortti.
+ */
+
 public class JLabelKortti extends JLabel {
     
     private Kortti kortti;
     private JLayeredPane aiempiPaikka;
     private Rectangle aiempiSijainti;
     public ImageIcon kuva;
+    
+    /**
+     * Konstruktori.
+     * @param kuva kortin näkyvä kuva, joko kuvapuoli tai selkä
+     * @param kortti 
+     */
     
     public JLabelKortti(ImageIcon kuva, Kortti kortti) {
         super(kuva);
@@ -35,6 +46,12 @@ public class JLabelKortti extends JLabel {
     public ImageIcon getKuva() {
         return this.kuva;
     }
+    
+    /**
+     * Metodi kertoo, onko JLabelKortti oikein päin. Jos JLabelKorttiin liittyvä 
+     * kortti on oikeinpäin, on myös JLabelKortti oikein päin.
+     * @return totuusarvo
+     */
     
     public boolean oikeinPain() {
         return kortti.onkoOikeinPain();
