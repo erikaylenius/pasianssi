@@ -15,10 +15,10 @@ Päivä | Tunnit | Kuvaus
 13.04.2017 | 1.5 h | Swing-oppaiden lukeminen
 14.04.2017 | 2 h | Swing-oppaiden lukeminen, vähän ohjelmointia ja pari JUnit-testiä
 19.04.2017 | 1 h | Swing-oppaiden lukeminen ja tiedon etsiminen
-20.4.2017 | 4.5 h | Sekvenssikaavioiden piirtäminen, raporttien generointi, ohjelmointia
-25.4.2017 | 4 h | Käyttöliittymän ohjelmointia
-26.4.2017 | 9.5 h | Käyttöliittymän ohjelmointia
-27.4.2017 | 4 h | Vähän käyttöliittymän edistystä, käyttöohjeiden ja rakennekuvauksen laatiminen, aiemman viikon puutteiden korjaaminen, raporttien generoiminen
-2.5.2017 | 1.5 h | Ohjelmointia ja tiedonetsintää
-3.5.2017 | 3 h | Ohjelmointia ja tiedonetsintää (murheena erityisesti korttien liikuttelu)
+20.4.2017 | 4.5 h | Sekvenssikaavioiden piirtäminen, raporttien generointi, ohjelmointia 
+25.4.2017 | 4 h | Käyttöliittymän ohjelmointia 
+26.4.2017 | 9.5 h | Käyttöliittymän ohjelmointia 
+27.4.2017 | 4 h | Vähän käyttöliittymän edistystä, käyttöohjeiden ja rakennekuvauksen laatiminen, aiemman viikon puutteiden korjaaminen, raporttien generoiminen 
+2.5.2017 | 1.5 h | Ohjelmointia ja tiedonetsintää 
+3.5.2017 | 3 h | Ohjelmointia ja tiedonetsintää (murheena erityisesti korttien liikuttelu) 
 4.5.2017 | 11 h | Vielä ohjelmointia, loppupalautuksen valmistelua
